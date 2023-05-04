@@ -1,8 +1,14 @@
 const counterText = document.querySelector(".counter-text");
 const greetingMsg = document.querySelector(".output-str");
 const greetBtn = document.querySelector(".greet-me-btn");
-const greeting = Greet();
 greetingMsg.innerHTML = "";
+let existingCounter = 0;
+
+if (window.localStorage.getItem("counter") || 0) {
+  existingCounter = localStorage.getItem("counter");
+  counterText.innerHTML = existingCounter;
+}
+const greeting = Greet(existingCounter);
 
 function greetings() {
   let currentLanguage = "";
@@ -15,9 +21,13 @@ function greetings() {
       username
     );
     counterText.innerHTML = greeting.peopleGreeted();
-  } else {
-    greetingMsg.innerHTML = "Please enter your name and select a language";
+    localStorage.setItem("counter", greeting.peopleGreeted());
+    // counterText.innerHTML = localStorage.getItem("counter");
   }
 }
 
 greetBtn.addEventListener("click", greetings);
+// localStorage.setItem('counter', greeting.peopleGreeted())
+// counterText.innerHTML = localStorage.getItem('counter');
+// localStorage.removeItem('counter');
+// localStorage.clear();

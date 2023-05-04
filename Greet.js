@@ -1,15 +1,11 @@
-function Greet() {
-  let greetCounter = 0;
+function Greet(existingCounter) {
+  let greetCounter = existingCounter || 0;
   let users = [];
 
   function peopleGreeted() {
     return greetCounter;
   }
   function greetUserWithLanguage(language, username) {
-    if (!users.includes(username)) {
-      greetCounter++;
-      users.push(username);
-    }
     if (language === "isiZulu") {
       return `Sawubona ${username}`;
     } else if (language === "English") {
@@ -23,3 +19,15 @@ function Greet() {
     greetUserWithLanguage,
   };
 }
+
+/*
+
+ if (!users.includes(username)) {
+      greetCounter++;
+      users.push(username);
+    }
+
+else {
+    greetingMsg.innerHTML = "Please enter your name and select a language";
+  }
+*/
