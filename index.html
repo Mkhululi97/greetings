@@ -9,10 +9,22 @@
   </head>
   <body>
     <h1 class="greeting">Greeting</h1>
+    <h2 class="counter-text">0</h2>
     <label class="inputName" for="name">Please Enter Your Name:</label>
     <input type="text" />
     <button class="greet-me-btn">Greet Me</button>
+
+    <div class="radio-btns">
+      <input type="radio" name="language" value="isiZulu" class="radio-btn" />
+      <label for="radio">isiZulu</label>
+      <input type="radio" name="language" value="English" class="radio-btn" />
+      <label for="radio">English</label>
+      <input type="radio" name="language" value="isiXhosa" class="radio-btn" />
+      <label for="radio">isiXhosa</label>
+    </div>
+
     <p class="output-str">Hello</p>
+    <script src="Greet.js"></script>
     <script src="greetDOM.js"></script>
   </body>
 </html>
