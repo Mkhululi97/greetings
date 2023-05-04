@@ -1,13 +1,4 @@
 describe("Testing Greet Factory Function", function () {
-  it("should return 'Hello Mkhululi', 'Hello Londeka', 'Hello Mashoto', 'Hello Akhona'", function () {
-    let greet = Greet();
-    greet.greetUser("Mkhululi");
-    assert.equal("Hello Mkhululi", greet.greetUser("Mkhululi"));
-    assert.equal("Hello Londeka", greet.greetUser("Londeka"));
-    assert.equal("Hello Mashoto", greet.greetUser("Mashoto"));
-    assert.equal("Hello Akhona", greet.greetUser("Akhona"));
-  });
-
   it("should return how many user's have been greeted", function () {
     let greet = Greet();
     greet.greetUserWithLanguage("isiZulu", "Mkhululi");

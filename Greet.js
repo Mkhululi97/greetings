@@ -1,13 +1,10 @@
 function Greet() {
   let greetCounter = 0;
   let users = [];
-  function greetUser(username) {
-    return `Hello ${username}`;
-  }
+
   function peopleGreeted() {
     return greetCounter;
   }
-
   function greetUserWithLanguage(language, username) {
     if (!users.includes(username)) {
       greetCounter++;
@@ -21,13 +18,8 @@ function Greet() {
       return `Molo ${username}`;
     }
   }
-  function usersGreeted() {
-    return users;
-  }
   return {
-    greetUser,
     peopleGreeted,
     greetUserWithLanguage,
-    usersGreeted,
   };
 }
