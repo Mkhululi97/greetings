@@ -17,6 +17,7 @@ function greetings() {
   const username = document.querySelector("input").value;
 
   if (username !== "" && selectedRadioBtn !== null) {
+    greeting.peopleCounter(username);
     currentLanguage = selectedRadioBtn.value;
     greetingMsg.innerHTML = greeting.greetUserWithLanguage(
       currentLanguage,
@@ -29,6 +30,7 @@ function greetings() {
     errorText.classList.remove("hidden");
     errorText.innerHTML = greeting.displayErrorMsg(username, selectedRadioBtn);
   }
+  console.log(greeting.peopleGreeted());
 }
 
 greetBtn.addEventListener("click", greetings);

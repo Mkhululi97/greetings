@@ -49,10 +49,16 @@ describe("Testing Greet Factory Function", function () {
         "Please enter your name",
         greet.displayErrorMsg("", "isiZulu")
       );
+    });
+    it("if the radio button is not selected", function () {
+      let greet = Greet();
       assert.equal(
         "Please select a language",
         greet.displayErrorMsg("Mkhululi", null)
       );
+    });
+    it("if the input field and the radio button is not selected", function () {
+      let greet = Greet();
       assert.equal(
         "Please select a language and enter your name",
         greet.displayErrorMsg("", null)
