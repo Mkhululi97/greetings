@@ -32,10 +32,14 @@ function Greet(existingCounter) {
     }
     return errorMsg;
   }
+  function resetCounter() {
+    return (greetCounter = 0);
+  }
   return {
     peopleCounter,
     peopleGreeted,
     greetUserWithLanguage,
     displayErrorMsg,
+    resetCounter,
   };
 }

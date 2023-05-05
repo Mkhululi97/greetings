@@ -2,6 +2,7 @@ const counterText = document.querySelector(".counter-text");
 const errorText = document.querySelector(".error-text");
 const greetingMsg = document.querySelector(".output-str");
 const greetBtn = document.querySelector(".greet-me-btn");
+const resetBtn = document.querySelector(".reset-btn");
 greetingMsg.innerHTML = "";
 let existingCounter = 0;
 
@@ -34,8 +35,12 @@ function greetings() {
 }
 
 greetBtn.addEventListener("click", greetings);
+resetBtn.addEventListener("click", function () {
+  greeting.resetCounter();
+  counterText.innerHTML = greeting.resetCounter();
+  localStorage.clear();
+});
 // localStorage.setItem('counter', greeting.peopleGreeted())
 // counterText.innerHTML = localStorage.getItem('counter');
 
 // localStorage.removeItem('counter');
-// localStorage.clear();

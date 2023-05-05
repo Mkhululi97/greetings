@@ -65,4 +65,22 @@ describe("Testing Greet Factory Function", function () {
       );
     });
   });
+  describe("Reset Button", function () {
+    it("Should reset the counter to 0", function () {
+      let greet = Greet();
+      assert.equal(0, greet.resetCounter());
+      greet.peopleCounter("Mkhululi");
+      greet.peopleCounter("Thembakazi");
+      greet.peopleCounter("Akhona");
+      assert.equal(3, greet.peopleGreeted());
+      greet.peopleCounter("Sakhile");
+      greet.peopleCounter("Peter");
+      assert.equal(5, greet.peopleGreeted());
+      greet.peopleCounter("Londeka");
+      greet.peopleCounter("Bheka");
+      greet.peopleCounter("Kabelo");
+      greet.resetCounter();
+      assert.equal(0, greet.peopleGreeted());
+    });
+  });
 });
