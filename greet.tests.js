@@ -1,16 +1,17 @@
 describe("Testing Greet Factory Function", function () {
   it("should return how many user's have been greeted", function () {
     let greet = Greet();
-    greet.greetUserWithLanguage("isiZulu", "Mkhululi");
-    greet.greetUserWithLanguage("isiZulu", "Thembakazi");
-    greet.greetUserWithLanguage("English", "Akhona");
-    greet.greetUserWithLanguage("English", "Mashoto");
-    greet.greetUserWithLanguage("English", "Londeka");
-    greet.greetUserWithLanguage("isiXhosa", "Mashoto");
-    greet.greetUserWithLanguage("isiXhosa", "Londeka");
+    greet.peopleCounter("Mkhululi");
+    greet.peopleCounter("Mkhululi");
+    greet.peopleCounter("Thembakazi");
+    greet.peopleCounter("Akhona");
+    greet.peopleCounter("Mashoto");
+    greet.peopleCounter("Londeka");
+    greet.peopleCounter("Mashoto");
+    greet.peopleCounter("Londeka");
     assert.equal(5, greet.peopleGreeted());
-    greet.greetUserWithLanguage("English", "Thando");
-    greet.greetUserWithLanguage("English", "Mpukeng");
+    greet.peopleCounter("Thando");
+    greet.peopleCounter("Mpukeng");
     assert.equal(7, greet.peopleGreeted());
   });
 
@@ -40,5 +41,22 @@ describe("Testing Greet Factory Function", function () {
       "Molo Mashoto",
       greet.greetUserWithLanguage("isiXhosa", "Mashoto")
     );
+  });
+  describe("Shows Error Message", function () {
+    it("if the input field is empty", function () {
+      let greet = Greet();
+      assert.equal(
+        "Please enter your name",
+        greet.displayErrorMsg("", "isiZulu")
+      );
+      assert.equal(
+        "Please select a language",
+        greet.displayErrorMsg("Mkhululi", null)
+      );
+      assert.equal(
+        "Please select a language and enter your name",
+        greet.displayErrorMsg("", null)
+      );
+    });
   });
 });
