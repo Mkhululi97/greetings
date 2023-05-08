@@ -12,7 +12,7 @@ function Greet(existingCounter) {
     return greetCounter;
   }
   function greetUserWithLanguage(language, username) {
-    let arrName = username.split("");
+    let arrName = username.toLowerCase().split("");
     [firstLetter, ...restOfLetters] = arrName;
     let capitalizeName = firstLetter.toUpperCase() + restOfLetters.join("");
     if (language === "isiZulu") {
