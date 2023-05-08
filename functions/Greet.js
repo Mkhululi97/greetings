@@ -12,12 +12,15 @@ function Greet(existingCounter) {
     return greetCounter;
   }
   function greetUserWithLanguage(language, username) {
+    let arrName = username.split("");
+    [firstLetter, ...restOfLetters] = arrName;
+    let capitalizeName = firstLetter.toUpperCase() + restOfLetters.join("");
     if (language === "isiZulu") {
-      return `Sawubona ${username}`;
+      return `Sawubona ${capitalizeName}`;
     } else if (language === "English") {
-      return `Hello ${username}`;
+      return `Hello ${capitalizeName}`;
     } else if (language === "isiXhosa") {
-      return `Molo ${username}`;
+      return `Molo ${capitalizeName}`;
     }
   }
   function displayErrorMsg(username, language) {
@@ -35,6 +38,7 @@ function Greet(existingCounter) {
   function resetCounter() {
     return (greetCounter = 0);
   }
+
   return {
     peopleCounter,
     peopleGreeted,
