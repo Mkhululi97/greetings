@@ -15,7 +15,7 @@ const greeting = Greet(existingCounter);
 function greetings() {
   let currentLanguage = "";
   let selectedRadioBtn = document.querySelector(".radio-btn:checked");
-  const username = document.querySelector("input").value;
+  let username = document.querySelector(".text-input").value;
 
   if (username !== "" && selectedRadioBtn !== null) {
     greeting.peopleCounter(username);
@@ -30,8 +30,15 @@ function greetings() {
   } else {
     errorText.classList.remove("hidden");
     errorText.innerHTML = greeting.displayErrorMsg(username, selectedRadioBtn);
+    setTimeout(function () {
+      errorText.classList.add("hidden");
+    }, 2500);
   }
-  console.log(greeting.peopleGreeted());
+  if (selectedRadioBtn.checked === true && username !== "") {
+    let clearUsername = document.querySelector(".text-input");
+    clearUsername.value = "";
+    selectedRadioBtn.checked = false;
+  }
 }
 
 greetBtn.addEventListener("click", greetings);

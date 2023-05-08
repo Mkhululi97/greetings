@@ -6,13 +6,17 @@ describe("Testing Greet Factory Function", function () {
     greet.peopleCounter("Thembakazi");
     greet.peopleCounter("Akhona");
     greet.peopleCounter("Mashoto");
+    greet.peopleCounter("thembakazi");
     greet.peopleCounter("Londeka");
+    greet.peopleCounter("akhona");
     greet.peopleCounter("Mashoto");
     greet.peopleCounter("Londeka");
-    assert.equal(5, greet.peopleGreeted());
+    greet.peopleCounter("Bheka");
+    greet.peopleCounter("bheka");
+    assert.equal(6, greet.peopleGreeted());
     greet.peopleCounter("Thando");
     greet.peopleCounter("Mpukeng");
-    assert.equal(7, greet.peopleGreeted());
+    assert.equal(8, greet.peopleGreeted());
   });
 
   it("should greet user in the language they selected", function () {

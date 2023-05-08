@@ -3,9 +3,9 @@ function Greet(existingCounter) {
   let users = [];
   let errorMsg = "";
   function peopleCounter(username) {
-    if (!users.includes(username)) {
+    if (!users.includes(username.toLowerCase())) {
       greetCounter++;
-      users.push(username);
+      users.push(username.toLowerCase());
     }
   }
   function peopleGreeted() {
