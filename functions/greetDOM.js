@@ -26,7 +26,20 @@ function greetings() {
     );
     counterText.innerHTML = greeting.peopleGreeted();
     localStorage.setItem("counter", greeting.peopleGreeted());
-    errorText.classList.add("hidden");
+    errorText.innerHTML = greeting.nameWithNumberError(username);
+    if (
+      errorText.classList.contains("hidden") &&
+      greeting.nameWithNumberError(username) !== undefined
+    ) {
+      errorText.classList.remove("hidden");
+      setTimeout(function () {
+        errorText.classList.add("hidden");
+      }, 2500);
+    }
+    // errorText.classList.add("hidden");
+    setTimeout(function () {
+      greetingMsg.innerHTML = "";
+    }, 3000);
   } else {
     errorText.classList.remove("hidden");
     errorText.innerHTML = greeting.displayErrorMsg(username, selectedRadioBtn);
@@ -47,7 +60,3 @@ resetBtn.addEventListener("click", function () {
   counterText.innerHTML = greeting.resetCounter();
   localStorage.clear();
 });
-// localStorage.setItem('counter', greeting.peopleGreeted())
-// counterText.innerHTML = localStorage.getItem('counter');
-
-// localStorage.removeItem('counter');

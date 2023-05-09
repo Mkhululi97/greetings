@@ -18,7 +18,19 @@ describe("Testing Greet Factory Function", function () {
     greet.peopleCounter("Mpukeng");
     assert.equal(8, greet.peopleGreeted());
   });
-
+  it("should not count names that have numbers in them", function () {
+    let greet = Greet();
+    greet.peopleCounter("Thandi");
+    greet.peopleCounter("THANDI");
+    greet.peopleCounter("mponeng");
+    greet.peopleCounter("Thembi34");
+    assert.equal(2, greet.peopleGreeted());
+    greet.peopleCounter("Mthoko");
+    greet.peopleCounter("palesa");
+    greet.peopleCounter("MPONENG3");
+    greet.peopleCounter("Thembi ");
+    assert.equal(5, greet.peopleGreeted());
+  });
   it("should greet user in the language they selected", function () {
     let greet = Greet();
     assert.equal(
@@ -66,6 +78,13 @@ describe("Testing Greet Factory Function", function () {
       assert.equal(
         "Please select a language and enter your name",
         greet.displayErrorMsg("", null)
+      );
+    });
+    it("if the username includes a number", function () {
+      let greet = Greet();
+      assert.equal(
+        "Cannot greet name containing number(s)",
+        greet.nameWithNumberError("thami123")
       );
     });
   });
