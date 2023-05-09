@@ -80,10 +80,15 @@ describe("Testing Greet Factory Function", function () {
         greet.displayErrorMsg("", null)
       );
     });
-    it("if the username includes a number", function () {
+    it("if the username includes a number or any special characters", function () {
       let greet = Greet();
+      greet.peopleCounter("thami");
+      greet.peopleCounter("thami@12");
+      greet.peopleCounter("wezi");
+      greet.peopleCounter("Wezi_45");
+      assert.equal(2, greet.peopleGreeted());
       assert.equal(
-        "Cannot greet name containing number(s)",
+        "Name should only contain letters",
         greet.nameWithNumberError("thami123")
       );
     });

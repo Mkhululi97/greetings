@@ -49,7 +49,7 @@ function Greet(existingCounter) {
   function nameWithNumberError(username) {
     usernameTrimmed = username.trim();
     if (!lettersOnlyRegex.test(usernameTrimmed)) {
-      errorMsg = "Cannot greet name containing number(s)";
+      errorMsg = "Name should only contain letters";
       return errorMsg;
     }
   }
