@@ -3,6 +3,7 @@ function Greet(existingCounter) {
   let users = [];
   let usernameTrimmed = "";
   let errorMsg = "";
+  let firstLetter, restOfLetters;
   const lettersOnlyRegex = /^[a-zA-Z]+$/;
 
   function peopleCounter(username) {
